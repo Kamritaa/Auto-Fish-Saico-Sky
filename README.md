@@ -1,2 +1,5 @@
 # Fish
-Auto Fish Python Script That Works With Saico Custom Plugins  (EDUCATIONAL USE ONLY!!! JUST TO SHOW IT WORKS)
+Auto Fish that Works on SaicoSky
+Join Discord for more help
+https://discord.gg/Gxzdg8smZv
+:)
