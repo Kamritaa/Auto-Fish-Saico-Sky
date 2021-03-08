@@ -1,39 +1,47 @@
+#modules needed
 from pyautogui import * 
 import pyautogui
 import time 
-import keyboard 
-import random
-import win32api, win32con
 
-time.sleep(2)
+#delay on program start
+time.sleep(2) 
 
-time2 = 0
+#set update to 0 on start
+update = 0
+print(update)
 
-print(time2)
-
-#def click(x,y):
-#    win32api.SetCursorPos((x,y))
-#    win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTDOWN,0,0)
-#    win32api.mouse_event(win32con.MOUSEEVENTF_RIGHTUP,0,0)
-
+#infinate while loop
 while 1:
-    if pyautogui.locateOnScreen('fish3.png', confidence=0.4) != None:
-        time2 = 0
+    #checks for the image using 40% confidence 
+    if pyautogui.locateOnScreen('fish.png', confidence=0.4) != None:
+        
+        #if found update set to 0
+        update = 0
         print("I can see it")
         time.sleep(0.5)
-        #click(0,0)
+        
+        #right click to reel rod
         pyautogui.click(button='right')
         print("Clicked")
         
+        #due to a delay it will cast it in same if statement 
+        
     else:
-        print("I am unable to see it")
+        
+        #if not found update will increase for 20 seconds
+        print("Not Visible")
         time.sleep(0.5)
-        time2 = time2 + 1
-        print(time2)
-        if time2 > 40:
+        update = update + 1
+        print(update)
+        
+        #if no fish found in 20 seconds then program will restart as plugin may have glitched 
+        if update > 40:
+            
+            #reels and casts rod
             pyautogui.click(button='right')
             time.sleep(0.5)
             pyautogui.click(button='right')
-            print("Clicked to reset")
-            time2 = 0
             
+            #sets update to 0
+            print("Clicked to reset")
+            update = 0
